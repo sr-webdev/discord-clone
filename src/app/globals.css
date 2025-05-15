@@ -1,7 +1,16 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+@import "uploadthing/tw/v4";
+@source "../../node_modules/@uploadthing/react/dist";
+
 @custom-variant dark (&:is(.dark *));
+
+html,
+body,
+:root {
+  height: 100%;
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -119,4 +128,9 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.cl-avatarBox {
+  width: 48px;
+  height: 48px;
 }

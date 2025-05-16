@@ -11,7 +11,6 @@ type Handler = (
 export function withAuth(handler: Handler): Handler {
   return async (req, context) => {
     const profile = await currentProfile();
-    console.log("wrapper: ", profile);
 
     if (!profile) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {

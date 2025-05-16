@@ -11,8 +11,6 @@ async function secretPATCH(
   profile: Profile
 ) {
   try {
-    console.log("secret route: ", profile);
-
     const { serverId } = await params;
 
     if (!serverId)

@@ -12,6 +12,10 @@ body,
   height: 100%;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);

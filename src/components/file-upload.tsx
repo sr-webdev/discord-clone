@@ -2,6 +2,7 @@
 
 import { OurFileRouter } from "@/app/api/uploadthing/core";
 import { UploadDropzone } from "@/utils/uploadthing";
+// import { UploadDropzone, useUploadThing } from "@/utils/uploadthing";
 
 import { X } from "lucide-react";
 import Image from "next/image";
@@ -13,6 +14,8 @@ interface FileUploadProps {
 }
 
 export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
+  // const uploadThing = useUploadThing(endpoint);
+
   if (value) {
     return (
       <div className="relative h-24 w-24">
@@ -30,6 +33,10 @@ export const FileUpload = ({ onChange, value, endpoint }: FileUploadProps) => {
   return (
     <UploadDropzone
       endpoint={endpoint}
+      // onChange={(files) => {
+      //   console.log("upload onChance");
+      //   uploadThing.startUpload(files);
+      // }}
       onClientUploadComplete={(res) => {
         onChange(res[0].ufsUrl);
       }}

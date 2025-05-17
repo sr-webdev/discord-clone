@@ -37,7 +37,7 @@ async function secretPOST(req: NextRequest, {}, profile: Profile) {
 
     return NextResponse.json(server);
   } catch (err) {
-    console.log("[SERVERS_POST]", err);
+    console.log("[CHANNELS_POST]", err);
     return new NextResponse("Internal error", { status: 500 });
   }
 }

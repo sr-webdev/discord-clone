@@ -116,7 +116,7 @@ async function secretDELETE(
 
     return NextResponse.json(server);
   } catch (err) {
-    console.log("[MEMBER_ID_PATCH", err);
+    console.log("[MEMBER_ID_DELETE", err);
     return new NextResponse("Internal Error", { status: 500 });
   }
 }

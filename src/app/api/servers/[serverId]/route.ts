@@ -37,3 +37,30 @@ async function secretPATCH(
 }
 
 export const PATCH = withAuth(secretPATCH);
+
+async function secretDELETE(
+  req: NextRequest,
+  { params }: { params: Promise<{ serverId: string }> },
+  profile: Profile
+) {
+  try {
+    const { serverId } = await params;
+
+    if (!serverId)
+      return new NextResponse("Server ID Missing", { status: 400 });
+
+    const server = await db.server.delete({
+      where: {
+        id: serverId,
+        profileId: profile.id,
+      },
+    });
+
+    return NextResponse.json(server);
+  } catch (err) {
+    console.log("[SERVER_ID_DELETE", err);
+    return new NextResponse("Internal Error", { status: 500 });
+  }
+}
+
+export const DELETE = withAuth(secretDELETE);
